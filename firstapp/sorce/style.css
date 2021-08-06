@@ -9,19 +9,20 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 15px;
 }
 
 /* 時計の共通スタイル */
 .clock {
   font-family: 'Share Tech Mono', monospace;
-  color: #cfc4c4;
-  text-shadow: 0 0 20px #e6afaf;
+  color: #c7cad3;
+  text-shadow: 0 0 20px #d4daf3;
   line-height: 1.2;
   text-align: center;
 }
 /* 時間のスタイル */
 .clock-time {
-  font-size: 100px;
+  font-size: 150px;
 }
 
 /* 文字サイズ調整 */
