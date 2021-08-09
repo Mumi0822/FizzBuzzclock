@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
 <title>fizzbuzzClock!!!!!!</title>
-  <meta name="description" content="">
+  <meta name="description" content="FizzBuzzに愛された時計chan">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="fizzbuzzClock!!!">
+  <meta property="og:type" content="FizzBuzzに愛された時計chan">
+  <meta property="og:url" content="https://mumi0822.github.io/fizzbuzzClock-/">
+  <meta property="og:image" content="https://mumi0822.github.io/fizzbuzzClock-/fzbzc.png">
 
   <!--<link rel="manifest" href="site.webmanifest">-->
   <link rel="apple-touch-icon" href="icon.png">
@@ -24,15 +24,26 @@
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
       <div class="clock">
-        <p class="clock-time"></p>
+        <p id="clock-time"></p>
       </div>
-  </div>
-  <script src="fizzbuzz.js">
-      
-      
-  </script>
+      <div class="clock">
+        <p id="fullClock"></p>
+      </div>
+      <div class="clock">
+        <p id="fullDate"></p>
+      </div>
+      <div>
+      <!--タイムゾーン指定-->
+      </div>
+      <div class="bts">
+        <!--ボタン機能-->
+        <button id="btn1" onClick="TimeStamp();">TimeStamp</button>
+      </div>
+        
+    </div>
+  <script src="fizzbuzz.js"></script>
   
 </body>
 

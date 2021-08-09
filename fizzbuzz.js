@@ -7,29 +7,52 @@ const fizzbuzz ={
             this.result =  number%5==0 ? this.result + "buzz":this.result;
             return this.result;
         }else{
-            number = number < 10 ? "0" + number : number;
-            return number;
+            AddZero(number);
+            this.result = number;
+            console.log("AddZero");
+            return this.result;
+            
         }
     }
 };
+const AddZero = function(number){
+    number = number < 10 ? "0" + number : number;
+        return number;
+};
 const Clock = function(){
     const d = new Date();
-    // 時を取得
+    //年月日を取得
+    let year = d.getFullYear();
+    let month = d.getMonth()+1;
+    let date = d.getDate();
+
+    // 時分秒を取得
     let hour = d.getHours();
-    // 分を取得
     let min = d.getMinutes();
-    // 秒を取得
     let sec = d.getSeconds();
   
-    // 1桁の場合は0を足して2桁に
-    hour = fizzbuzz.Check(hour);
-    min = fizzbuzz.Check(min);
-    sec = fizzbuzz.Check(sec);
+    // fizzbuzzCheckと校正
+    let fbhour = fizzbuzz.Check(hour);
+    let fbmin = fizzbuzz.Check(min);
+    let fbsec = fizzbuzz.Check(sec);
+    
+    month = AddZero(month);
+    date  = AddZero(date);
+    hour  = AddZero(hour);
+    min   = AddZero(min);
+    sec   = AddZero(sec);
   
-    // 日付・時刻の文字列を作成
-    let time = `${hour}:${min}:${sec}`;
-    document.querySelector(".clock-time").innerText = time;
+    // 時刻の文字列を作成
+    const fbTime  = `${fbhour}:${fbmin}:${fbsec}`;
+    const fullDate= `${year}/${month}/${date}`; 
+    const fullTime= `${hour}:${min}:${sec}`;
+    document.querySelector("#clock-time").innerText = fbTime;                                                                  
+    document.querySelector("#fullClock").innerText = fullTime;
+    document.querySelector("#fullDate").innerText = fullDate;
+    
+
 };
-setInterval(Clock, 1000);
-
-
+const TimeStamp = function(){
+    window.alert(`TimeStamp : ${document.getElementById("clock-time").innerText}`);
+}
+setInterval(Clock, 1000);      
