@@ -1,12 +1,17 @@
+
 const fizzbuzz ={
-    result: "",
+//FizzBuzz用オブジェクト
+    result: "",//⇒返り値。Checkの結果を入れる
     Check(number){
-        this.result="";//初期化
+        //初期化
+        this.result="";
         if(number%3==0||number%5==0){
+            //FizzBuzz変換あり
             this.result =  number%3==0 ? this.result + "fizz":this.result;
             this.result =  number%5==0 ? this.result + "buzz":this.result;
             return this.result;
         }else{
+            //AddZeroの動作がここだけおかしい？0がつかない
             AddZero(number);
             this.result = number;
             console.log("AddZero");
@@ -16,6 +21,7 @@ const fizzbuzz ={
     }
 };
 const AddZero = function(number){
+    //一桁であれば0をつける　例：1→01
     number = number < 10 ? "0" + number : number;
         return number;
 };
@@ -31,7 +37,7 @@ const Clock = function(){
     let min = d.getMinutes();
     let sec = d.getSeconds();
   
-    // fizzbuzzCheckと校正
+    // fizzbuzzCheck⇒AddZeroがおかしい0がつかない
     let fbhour = fizzbuzz.Check(hour);
     let fbmin = fizzbuzz.Check(min);
     let fbsec = fizzbuzz.Check(sec);
@@ -42,17 +48,20 @@ const Clock = function(){
     min   = AddZero(min);
     sec   = AddZero(sec);
   
-    // 時刻の文字列を作成
-    const fbTime  = `${fbhour}:${fbmin}:${fbsec}`;
-    const fullDate= `${year}/${month}/${date}`; 
+    // FizzBuzzの時計
+    const fbTime  = `${fbhour}:${fbmin}:${fbsec}`;//⇒0がつかない
+    //普通の時計
     const fullTime= `${hour}:${min}:${sec}`;
-    document.querySelector("#clock-time").innerText = fbTime;                                                                  
-    document.querySelector("#fullClock").innerText = fullTime;
-    document.querySelector("#fullDate").innerText = fullDate;
+    //年月日
+    const fullDate= `${year}/${month}/${date}`;
+    document.getElementById("clock-time").innerText = fbTime;                                                                  
+    document.getElementById("fullClock").innerText = fullTime;
+    document.getElementById("fullDate").innerText = fullDate;
     
 
 };
 const TimeStamp = function(){
+    //
     window.alert(`TimeStamp : ${document.getElementById("clock-time").innerText}`);
 }
 setInterval(Clock, 1000);      
